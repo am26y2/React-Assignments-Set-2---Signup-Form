@@ -13,12 +13,16 @@ const App = () => {
 
   const [errorFields, setErrorFields] = useState(false);
 
+
   const handleChange = (event) => {
     let name = event.target.name;
     let value = event.target.value;
+    // console.log(event.target.value);
+    // console.log(event.target.name);
     setInputFields((prevInputFields) => {
       return { ...prevInputFields, [name]: value };
     });
+    // console.log(inputFields);
   };
 
   const handleClick = () => {
