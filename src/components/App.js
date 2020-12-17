@@ -10,21 +10,14 @@ const App = () => {
     password: "",
     userName: ""
   });
-
-  const [errorFields, setErrorFields] = useState(false);
-
-
+  const [errorFields, setErrorFields] = useState("");
   const handleChange = (event) => {
     let name = event.target.name;
     let value = event.target.value;
-    // console.log(event.target.value);
-    // console.log(event.target.name);
     setInputFields((prevInputFields) => {
       return { ...prevInputFields, [name]: value };
     });
-    // console.log(inputFields);
   };
-
   const handleClick = () => {
     if (
       inputFields.name === "" ||
@@ -51,17 +44,19 @@ const App = () => {
     } else {
       let index = inputFields.emailId.indexOf("@");
       let name = inputFields.emailId.substring(0, index);
+      // console.log(name);
       setInputFields((prevInputFields) => {
         return { ...prevInputFields, userName: name };
       });
+      // console.log(inputFields);
       setErrorFields(true);
     }
   };
 
   return (
     <div id="main">
-      {errorFields && <div>{`Hello ${inputFields.userName}`}</div>}
-      {!errorFields && <div>{errorFields}</div>}
+      {{errorFields}==='true'? <div>{`Hello ${inputFields.userName}`}</div>:<div>{errorFields}</div>}
+      {/* {!errorFields && <div>{errorFields}</div>} */}
       <div>
         <input
           data-testid="name"
