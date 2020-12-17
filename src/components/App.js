@@ -2,6 +2,8 @@ import React, { Component, useState } from "react";
 import "../styles/App.css";
 
 const App = () => {
+  const [name,setName]=useState('');
+  
   const [inputFields, setInputFields] = useState({
     name: "",
     emailId: "",
@@ -80,6 +82,7 @@ const App = () => {
           name="gender"
           placeholder="Enter Your Gender (male or female or other)"
           value={inputFields.gender}
+          defaultValue='male'
           onChange={handleChange}
         ></input>
         <input
