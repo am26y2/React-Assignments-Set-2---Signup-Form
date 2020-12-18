@@ -1,9 +1,7 @@
-import React, { Component, useState } from "react";
-import "../styles/App.css";
+import React, { useState } from "react";
 
 const App = () => {
-  const [name,setName]=useState('');
-  
+
   const [inputFields, setInputFields] = useState({
     name: "",
     emailId: "",
@@ -46,19 +44,20 @@ const App = () => {
     } else {
       let index = inputFields.emailId.indexOf("@");
       let name = inputFields.emailId.substring(0, index);
-      // console.log(name);
       setInputFields((prevInputFields) => {
         return { ...prevInputFields, userName: name };
       });
-      // console.log(inputFields);
       setErrorFields(true);
     }
   };
 
   return (
     <div id="main">
-      {{errorFields}==='true'? <div>{`Hello ${inputFields.userName}`}</div>:<div>{errorFields}</div>}
-      {/* {!errorFields && <div>{errorFields}</div>} */}
+      {errorFields === true ? (
+        <div>{`Hello ${inputFields.userName}`}</div>
+      ) : (
+        <div>{errorFields}</div>
+      )}
       <div>
         <input
           data-testid="name"
@@ -70,7 +69,7 @@ const App = () => {
         ></input>
         <input
           data-testid="email"
-          type="email"
+          type="text"
           name="emailId"
           placeholder="Enter Your Email Id"
           value={inputFields.emailID}
@@ -82,12 +81,12 @@ const App = () => {
           name="gender"
           placeholder="Enter Your Gender (male or female or other)"
           value={inputFields.gender}
-          defaultValue='male'
+          defaultValue="male"
           onChange={handleChange}
         ></input>
         <input
           data-testid="phoneNumber"
-          type="number"
+          type="text"
           name="phoneNumber"
           placeholder="Enter Your Phone Number"
           value={inputFields.phoneNumber}
@@ -110,3 +109,6 @@ const App = () => {
 };
 
 export default App;
+function newFunction() {
+  return "true";
+}
