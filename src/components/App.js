@@ -48,11 +48,9 @@ const App = () => {
     } else {
       let index = inputFields.emailId.indexOf("@");
       let name = inputFields.emailId.substring(0, index);
-      // console.log(name);
       setInputFields((prevInputFields) => {
         return { ...prevInputFields, userName: name };
       });
-      // console.log(inputFields);
       setErrorFields(true);
     }
   };
