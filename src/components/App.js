@@ -21,9 +21,8 @@ const App = () => {
     });
   };
   const handleClick = () => {
-    // console.log(
-    //   (inputFields.name.charAt(0) ^ 0) === +inputFields.name.charAt(0)
-    // );
+    var cc = +inputFields.name.charAt(0);
+    console.log(cc);
     if (
       inputFields.name === "" ||
       inputFields.emailId === "" ||
@@ -33,7 +32,7 @@ const App = () => {
     ) {
       setErrorFields("All fields are mandatory");
     } else if (
-      (inputFields.name.charAt(0) ^ 0) === +inputFields.name.charAt(0) ||
+      (cc > -1 && cc < 10) ||
       inputFields.name.match(/^[a-zA-Z]+$/) === false
     ) {
       setErrorFields("Name is not alphanumeri");
