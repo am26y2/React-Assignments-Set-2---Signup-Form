@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+//import "../styles/App.css";
 
 const App = () => {
+  //const [name, setName] = useState("");
 
   const [inputFields, setInputFields] = useState({
     name: "",
@@ -8,7 +10,7 @@ const App = () => {
     gender: "male",
     phoneNumber: "",
     password: "",
-    userName: ""
+    userName: "",
   });
   const [errorFields, setErrorFields] = useState("");
   const handleChange = (event) => {
@@ -27,7 +29,10 @@ const App = () => {
       inputFields.password === ""
     ) {
       setErrorFields("All fields are mandatory");
-    } else if (inputFields.name.match(/^[a-zA-Z]+$/) === false) {
+    } else if (
+      (inputFields.name.charAt(0) ^ 0) ===
+      +inputFields.name.charAt(0)
+    ) {
       setErrorFields("Name is not alphanumeri");
     } else if (inputFields.emailId.includes("@") === false) {
       setErrorFields("Email must contain @");
@@ -44,17 +49,18 @@ const App = () => {
     } else {
       let index = inputFields.emailId.indexOf("@");
       let name = inputFields.emailId.substring(0, index);
+      // console.log(name);
       setInputFields((prevInputFields) => {
         return { ...prevInputFields, userName: name };
       });
+      // console.log(inputFields);
       setErrorFields(true);
     }
   };
 
   return (
     <div id="main">
-      {errorFields === true && 
-      (inputFields.name.charAt(0) ^ 0) !== +inputFields.name.charAt(0) ? (
+      {errorFields === true ? (
         <div>{`Hello ${inputFields.userName}`}</div>
       ) : (
         <div>{errorFields}</div>
