@@ -33,7 +33,7 @@ const App = () => {
       setErrorFields("All fields are mandatory");
     } else if (inputFields.name.match(alphanumeric)) {
       setErrorFields("Name is not alphanumeri");
-    } else if (inputFields.emailId.index("@") <1) {
+    } else if (inputFields.emailId.includes("@") === false) {
       setErrorFields("Email must contain @");
     } else if (
       inputFields.gender !== "male" &&
