@@ -44,7 +44,7 @@ const App = () => {
       inputFields.gender !== "other"
     ) {
       setErrorFields("Please identify as male, female or others");
-    } else if (Number.isNaN(inputFields.phoneNumber)) {
+    } else if (Number.isNaN(inputFields.phoneNumber) || Number.length!=10) {
       setErrorFields("Phone Number must contain only numbers");
     } else if (inputFields.password.length < 6) {
       setErrorFields("Password must contain atleast 6 letters");
