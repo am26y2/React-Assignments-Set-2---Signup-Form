@@ -53,7 +53,7 @@ const App = () => {
 
   return (
     <div id="main">
-      {errorFields === true && &&
+      {errorFields === true && 
       (inputFields.name.charAt(0) ^ 0) !== +inputFields.name.charAt(0) ? (
         <div>{`Hello ${inputFields.userName}`}</div>
       ) : (
