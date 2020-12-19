@@ -10,7 +10,7 @@ const App = () => {
     gender: "male",
     phoneNumber: "",
     password: "",
-    userName: "",
+    userName: ""
   });
   const [errorFields, setErrorFields] = useState("");
   const handleChange = (event) => {
@@ -21,6 +21,9 @@ const App = () => {
     });
   };
   const handleClick = () => {
+    // console.log(
+    //   (inputFields.name.charAt(0) ^ 0) === +inputFields.name.charAt(0)
+    // );
     if (
       inputFields.name === "" ||
       inputFields.emailId === "" ||
@@ -30,8 +33,8 @@ const App = () => {
     ) {
       setErrorFields("All fields are mandatory");
     } else if (
-      (inputFields.name.charAt(0) ^ 0) ===
-      +inputFields.name.charAt(0)
+      (inputFields.name.charAt(0) ^ 0) === +inputFields.name.charAt(0) ||
+      inputFields.name.match(/^[a-zA-Z]+$/) === false
     ) {
       setErrorFields("Name is not alphanumeri");
     } else if (inputFields.emailId.includes("@") === false) {
