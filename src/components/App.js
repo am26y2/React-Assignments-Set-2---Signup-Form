@@ -21,8 +21,8 @@ const App = () => {
     });
   };
   const handleClick = () => {
-    const alphanumeric = /^[0-9a-zA-Z]+$/;
-    const number = /^\d+$/;
+    // const alphanumeric = /^[0-9a-zA-Z]+$/;
+    // const number = /^\d+$/;
     if (
       inputFields.name === "" ||
       inputFields.emailId === "" ||
@@ -31,7 +31,7 @@ const App = () => {
       inputFields.password === ""
     ) {
       setErrorFields("All fields are mandatory");
-    } else if (inputFields.name.match(alphanumeric)) {
+    } else if (inputFields.name===null || inputFields.name.match(alphanumeric)) {
       setErrorFields("Name is not alphanumeri");
     } else if (inputFields.emailId.includes("@") === false) {
       setErrorFields("Email must contain @");
