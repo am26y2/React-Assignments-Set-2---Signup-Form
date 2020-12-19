@@ -94,7 +94,7 @@ const App = () => {
         ></input>
         <input
           data-testid="phoneNumber"
-          type="text"
+          type="number"
           name="phoneNumber"
           placeholder="Enter Your Phone Number"
           value={inputFields.phoneNumber}
