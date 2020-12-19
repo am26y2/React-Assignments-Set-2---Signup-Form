@@ -21,7 +21,8 @@ const App = () => {
     });
   };
   const handleClick = () => {
-    var cc=inputFields.name.charAt(0);
+    const alphanumeric = /^[0-9a-zA-Z]+$/;
+    const number = /^\d+$/;
     if (
       inputFields.name === "" ||
       inputFields.emailId === "" ||
@@ -30,10 +31,7 @@ const App = () => {
       inputFields.password === ""
     ) {
       setErrorFields("All fields are mandatory");
-    } else if 
-      (((cc > 47 && cc < 58) || (cc > 64 && cc < 91) || (cc > 96 && cc < 123))  ||
-      inputFields.name.match(/^[a-zA-Z]+$/) === false
-    ) {
+    } else if (inputFields.name.match(alphanumeric)) {
       setErrorFields("Name is not alphanumeri");
     } else if (inputFields.emailId.includes("@") === false) {
       setErrorFields("Email must contain @");
@@ -43,7 +41,7 @@ const App = () => {
       inputFields.gender !== "other"
     ) {
       setErrorFields("Please identify as male, female or others");
-    } else if (Number.isNaN(inputFields.phoneNumber)) {
+    } else if (!number.test(inputFields.phoneNumber)) {
       setErrorFields("Phone Number must contain only numbers");
     } else if (inputFields.password.length < 6) {
       setErrorFields("Password must contain atleast 6 letters");
